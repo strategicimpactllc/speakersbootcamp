@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enroll — 2-Day Live & In-Person Intensive | Speakers Bootcamp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#050301;
+    --panel:#1a0f04;
+    --panel-2:#241605;
+    --orange:#f5941f;
+    --orange-dark:#c96f0c;
+    --white:#f6f8fb;
+    --grey:#c7bdae;
+    --grey-dim:#8a7d6b;
+    --line:rgba(255,255,255,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--navy-deep);color:var(--white);font-family:'Barlow',sans-serif;line-height:1.5;}
+  h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;line-height:0.98;letter-spacing:0.5px;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:2px;color:var(--orange);text-transform:uppercase;margin-bottom:18px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--orange);display:inline-block;}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:15px 26px;border-radius:3px;border:1px solid transparent;cursor:pointer;white-space:nowrap;}
+  .btn-orange{background:var(--orange);color:#1a0c00;}
+  .btn-orange:hover{background:var(--orange-dark);}
+  .back-link{display:inline-block;padding:24px 0 0;font-size:13px;color:var(--orange);font-weight:600;}
+  .back-link:hover{text-decoration:underline;}
+
+  /* Hero */
+  .hero{position:relative;padding:20px 0 50px;overflow:hidden;
+    background:radial-gradient(ellipse at 68% 40%, rgba(245,148,31,0.10), transparent 55%), linear-gradient(180deg, #060402 0%, #050301 60%);
+  }
+  .hero::after{content:"";position:absolute;right:2%;bottom:0;top:15%;width:44%;
+    background:radial-gradient(circle at 50% 25%, rgba(255,255,255,0.08), transparent 45%);opacity:0.9;}
+  .hero-inner{position:relative;z-index:2;max-width:640px;}
+  .hero h1{font-size:38px;margin-bottom:6px;}
+  .hero h1 .accent{color:var(--orange);}
+  .hero p.desc{color:var(--grey);font-size:15px;max-width:520px;margin:20px 0;}
+  .limited{display:flex;align-items:center;gap:8px;color:var(--orange);font-weight:600;font-size:14px;}
+  @media (max-width:760px){ .hero h1{font-size:28px;} .hero::after{display:none;} }
+
+  /* Quote band */
+  .quote-band{background:linear-gradient(180deg,#231404,#180d02);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:46px 0;text-align:center;}
+  .quote-band blockquote{font-style:italic;font-size:17px;max-width:760px;margin:0 auto 18px;color:var(--white);}
+  .quote-band p.attrib{color:var(--grey-dim);font-size:13px;max-width:700px;margin:0 auto;}
+  .quote-band p.attrib strong{color:var(--orange);}
+
+  /* Content */
+  .content{padding:70px 0 90px;}
+  .content-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:50px;align-items:start;}
+  .content > .wrap > .content-grid > div:first-child > p.intro{color:var(--grey);font-size:15px;margin-bottom:36px;}
+  .content h2{font-size:24px;margin-bottom:22px;}
+
+  .topics{list-style:none;margin-bottom:44px;}
+  .topics li{display:flex;gap:10px;font-size:14px;color:var(--grey);margin-bottom:16px;}
+  .topics li::before{content:"⊙";color:var(--orange);flex-shrink:0;}
+
+  .details-table{border:1px solid var(--line);border-radius:4px;overflow:hidden;}
+  .details-row{display:grid;grid-template-columns:140px 1fr;background:var(--panel);padding:16px 20px;border-bottom:1px solid var(--line);}
+  .details-row:last-child{border-bottom:none;}
+  .details-row:nth-child(even){background:#170d03;}
+  .details-row .k{color:var(--orange);font-weight:600;font-size:14px;}
+  .details-row .v{color:var(--grey);font-size:14px;}
+  @media (max-width:500px){ .details-row{grid-template-columns:1fr;gap:4px;} }
+
+  /* Sidebar */
+  .sidebar{position:sticky;top:24px;background:var(--panel);border:1px solid rgba(245,148,31,0.3);border-radius:6px;padding:28px;}
+  .sidebar .eyebrow{font-size:20px;margin-bottom:22px;color:var(--orange);letter-spacing:1px;}
+  .sidebar .eyebrow::before{display:none;}
+  .included-box{background:rgba(245,148,31,0.08);border:1px solid rgba(245,148,31,0.25);border-radius:4px;padding:18px;margin-bottom:22px;}
+  .included-box h4{font-size:13px;color:var(--white);margin-bottom:12px;font-weight:600;}
+  .included-box ul{list-style:none;}
+  .included-box li{font-size:13px;color:var(--grey);margin-bottom:9px;padding-left:18px;position:relative;}
+  .included-box li::before{content:"✓";color:var(--orange);position:absolute;left:0;}
+  .sidebar .btn{width:100%;justify-content:center;margin-bottom:8px;}
+  .secure{text-align:center;font-size:12px;color:var(--grey-dim);margin-bottom:22px;}
+  .questions{font-size:13px;color:var(--grey);}
+  .questions strong{display:block;color:var(--white);margin-bottom:4px;}
+  .questions a{color:var(--orange);}
+  @media (max-width:860px){ .content-grid{grid-template-columns:1fr;} .sidebar{position:static;} }
+
+  /* Stats */
+  .stats-strip{background:var(--panel-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;gap:20px;}
+  .stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:32px;color:var(--orange);}
+  .stat-label{font-size:12px;color:var(--grey-dim);margin-top:4px;}
+
+  .final-cta{text-align:center;padding:90px 0;}
+  .final-cta h2{font-size:34px;margin-bottom:16px;}
+  .final-cta p{color:var(--grey);max-width:540px;margin:0 auto 30px;}
+  @media (max-width:700px){ .stats-grid{grid-template-columns:1fr;row-gap:24px;} }
+
+  /* Footer */
+  .logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:0.5px;}
+  .logo span{color:var(--orange);}
+  .logo-sub{display:block;font-size:9px;font-weight:500;letter-spacing:2px;color:var(--grey-dim);font-family:'Barlow',sans-serif;text-transform:uppercase;margin-top:2px;}
+  footer{border-top:1px solid var(--line);padding:34px 0;}
+  .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:24px;font-size:13px;color:var(--grey-dim);}
+  .footer-links a:hover{color:var(--white);}
+  .footer-copy{font-size:12px;color:var(--grey-dim);}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a href="index.html" class="back-link">← Back to Home</a>
+</div>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">VIP 2-Day Intensive</div>
+    <h1>Unleash your potential<br><span class="accent">as a dynamic speaker<br>& influential leader</span></h1>
+    <p class="desc">Discover the transformative power of our comprehensive training and coaching program designed specifically for business leaders seeking to master the art of presentation skills and public speaking. These high-return skills will elevate your professional success and make a lasting impact on your audience.</p>
+    <div class="limited">⚡ Limited availability — secure your spot today</div>
+  </div>
+</section>
+
+<div class="quote-band">
+  <div class="wrap">
+    <blockquote>"Renowned investor Warren Buffett himself has acknowledged the paramount importance of being a great public speaker, ranking it at the top of the list for any executive."</blockquote>
+    <p class="attrib">Under the expert guidance of <strong>Joe Williams</strong>, who has successfully empowered hundreds of companies and individuals across diverse industries — Technology, Aerospace, Financial Services, Venture Capital, Advertising, and Entertainment — you too can unlock your potential for highly profitable and impactful business ventures and careers.</p>
+  </div>
+</div>
+
+<section class="content">
+  <div class="wrap content-grid">
+    <div>
+      <p class="intro">During this intensive training, you will focus on developing a clear and empowering leadership message while conquering fears, eliminating mistakes, and transforming lackluster presentations into captivating experiences. Armed with invaluable skills and hands-on experience, you will excel in every aspect of public speaking.</p>
+
+      <h2>Key Topics Covered</h2>
+      <ul class="topics">
+        <li>Mastering the core elements of crafting a compelling message that moves your audience and instills a visionary mindset</li>
+        <li>Understanding the three key attributes of top performers that effectively leverage their strengths</li>
+        <li>Learning how to access and command your "flow state" to perform effortlessly and leave a lasting impression</li>
+        <li>Conquering stage fright, managing nerves, and building unshakeable confidence under any circumstance</li>
+        <li>Sharpening your ability to think on your feet and respond adeptly to any situation that arises</li>
+        <li>Commanding the room from the first word — mastering body language, vocal presence, and strategic positioning to establish instant authority and credibility</li>
+        <li>Architecting the perfect opening — learning the proven frameworks that capture attention, establish trust, and set the emotional tone within the first 60 seconds</li>
+        <li>Tailoring your message to any audience — developing the awareness and adaptability to read a room and pivot your delivery to resonate with any group, from boardrooms to ballrooms</li>
+        <li>Transforming data and complexity into compelling narratives — acquiring the techniques to distill dense information into clear, memorable stories that move people to action</li>
+        <li>Eliminating filler words and verbal clutter — training your mind and mouth to communicate with precision, authority, and intentional silence that commands respect</li>
+        <li>Leveraging the power of strategic pausing and pacing — understanding how timing, rhythm, and silence can amplify your message and keep your audience riveted</li>
+        <li>Handling hostile questions and curveballs with grace — building the mental agility and emotional intelligence to navigate difficult moments and emerge stronger</li>
+        <li>Creating memorable closings that drive action — mastering the art of the call-to-action so your audience leaves inspired, aligned, and ready to move</li>
+        <li>Building a signature presentation style — identifying and refining the unique qualities that make your delivery distinctly yours and impossible to forget</li>
+        <li>Sustaining peak performance across multi-day events — developing the stamina, mindset rituals, and recovery strategies that keep your energy and impact at their highest throughout extended engagements</li>
+      </ul>
+
+      <h2>Program Details</h2>
+      <div class="details-table">
+        <div class="details-row"><div class="k">Duration:</div><div class="v">2 Days, 9:00 AM – 5:00 PM</div></div>
+        <div class="details-row"><div class="k">Location:</div><div class="v">Denver, CO</div></div>
+        <div class="details-row"><div class="k">Format:</div><div class="v">Private 1 on 1 Training — CEO & Senior Executive Level</div></div>
+        <div class="details-row"><div class="k">Availability:</div><div class="v">Limited — Secure your spot today</div></div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="eyebrow">VIP 2-Day Intensive</div>
+      <div class="included-box">
+        <h4>The Complete Package:</h4>
+        <ul>
+          <li>2 days intensive in-person training</li>
+          <li>Direct coaching from Joe Williams</li>
+          <li>CEO & Executive level format</li>
+          <li>Custom 30-day action plan</li>
+          <li>90-day follow-up support</li>
+          <li>Denver, CO location</li>
+        </ul>
+      </div>
+      <a href="mailto:hello@strategicimpactllc.com?subject=VIP%202%20Day%20Intensive" class="btn btn-orange">Reserve Your Spot →</a>
+      <div class="questions">
+        <strong>Questions?</strong>
+        <a href="mailto:Hello@StrategicImpactLLC.com">Email: Hello@StrategicImpactLLC.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="wrap stats-grid">
+    <div><div class="stat-num">500+</div><div class="stat-label">Leaders Trained</div></div>
+    <div><div class="stat-num">Hundreds</div><div class="stat-label">Of Companies Empowered</div></div>
+    <div><div class="stat-num">2 Days</div><div class="stat-label">To Transformation</div></div>
+  </div>
+</div>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Your journey begins here</h2>
+    <p>Don't merely dream it — live it. Reserve your spot and embark on a journey towards becoming an extraordinary leader. Revolutionize your perspective and career. Act now to reach extraordinary heights.</p>
+    <a href="mailto:hello@strategicimpactllc.com?subject=VIP%202%20Day%20Intensive" class="btn btn-orange">Get Started Today →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="logo">SPEAKERS <span>BOOTCAMP</span><span class="logo-sub">WITH JOE WILLIAMS</span></div>
+    <div class="footer-links">
+      <a href="mailto:hello@strategicimpactllc.com">hello@strategicimpactllc.com</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">© 2026 Strategic Impact LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

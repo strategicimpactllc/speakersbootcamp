@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speakers Bootcamp | Master Your Message. Change Your World.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#03060d;
+    --navy:#070c18;
+    --navy-panel:#0c1526;
+    --blue:#2fa8ff;
+    --blue-dark:#1c7fd6;
+    --orange:#f5941f;
+    --orange-dark:#c96f0c;
+    --white:#f6f8fb;
+    --grey:#aab4c4;
+    --grey-dim:#7c869a;
+    --line:rgba(255,255,255,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy-deep);
+    color:var(--white);
+    font-family:'Barlow',sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.display{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    line-height:0.98;
+    letter-spacing:0.5px;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:13px;letter-spacing:2px;
+    color:var(--blue);text-transform:uppercase;margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--blue);display:inline-block;}
+  .eyebrow.orange{color:var(--orange);}
+  .eyebrow.orange::before{background:var(--orange);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:14px;letter-spacing:1px;text-transform:uppercase;
+    padding:15px 26px;border-radius:3px;border:1px solid transparent;
+    cursor:pointer;white-space:nowrap;
+  }
+  .btn-blue{background:var(--blue);color:#00111f;}
+  .btn-blue:hover{background:var(--blue-dark);}
+  .btn-outline{border-color:rgba(255,255,255,0.35);color:var(--white);background:transparent;}
+  .btn-outline:hover{border-color:var(--white);}
+  .btn-orange{background:var(--orange);color:#1a0c00;}
+  .btn-orange:hover{background:var(--orange-dark);}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(3,6,13,0.9);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1180px;margin:0 auto;}
+  .logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:0.5px;}
+  .logo span{color:var(--blue);}
+  .logo-sub{display:block;font-size:9px;font-weight:500;letter-spacing:2px;color:var(--grey-dim);font-family:'Barlow',sans-serif;text-transform:uppercase;margin-top:2px;}
+  nav{display:flex;align-items:center;gap:36px;}
+  nav .links{display:flex;gap:32px;font-size:14px;font-weight:500;color:var(--grey);}
+  nav .links a:hover{color:var(--white);}
+  @media (max-width:760px){ nav .links{display:none;} }
+
+  /* Hero */
+  .hero{
+    position:relative;
+    padding:90px 0 60px;
+    background:
+      radial-gradient(ellipse at 65% 30%, rgba(47,168,255,0.16), transparent 55%),
+      linear-gradient(180deg, #050810 0%, #04070f 60%, #020409 100%);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-6%;bottom:0;top:0;width:52%;
+    background:
+      radial-gradient(circle at 50% 20%, rgba(255,255,255,0.10), transparent 40%),
+      linear-gradient(180deg, rgba(10,16,28,0.2), rgba(3,5,10,0.9));
+    clip-path:polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity:0.9;
+  }
+  .hero-grid{position:relative;z-index:2;max-width:640px;}
+  .hero h1{font-size:56px;margin-bottom:22px;}
+  .hero h1 .accent{color:var(--blue);}
+  .hero p.lead{color:var(--grey);font-size:17px;max-width:520px;margin-bottom:30px;}
+  .hero p.lead strong{color:var(--white);font-weight:600;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px;}
+  .hero-proof{display:flex;gap:28px;flex-wrap:wrap;color:var(--grey-dim);font-size:13px;}
+  .hero-proof span{display:flex;align-items:center;gap:8px;}
+  .check{color:var(--blue);}
+  @media (max-width:760px){ .hero h1{font-size:38px;} .hero::after{display:none;} }
+
+  /* Stats bar */
+  .stats{
+    background:linear-gradient(90deg, #061224, #0a1a30 50%, #061224);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:34px 0;
+  }
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+  .stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:40px;color:var(--blue);}
+  .stat-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey-dim);margin-top:4px;}
+  @media (max-width:700px){ .stats-grid{grid-template-columns:repeat(2,1fr);row-gap:28px;} }
+
+  /* Section generic */
+  section{padding:90px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 56px;}
+  .section-head h2{font-size:38px;margin-bottom:16px;}
+  .section-head h2 .accent{color:var(--blue);}
+  .section-head p{color:var(--grey);font-size:16px;}
+
+  /* Program grid */
+  .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .program-card{background:var(--navy);padding:32px;}
+  .program-icon{width:38px;height:38px;border-radius:6px;background:rgba(47,168,255,0.12);color:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:16px;font-weight:700;}
+  .program-card h3{font-size:19px;font-weight:700;text-transform:none;font-family:'Barlow',sans-serif;letter-spacing:0;margin-bottom:8px;}
+  .program-card p{color:var(--grey);font-size:14px;}
+  @media (max-width:860px){ .program-grid{grid-template-columns:1fr;} }
+
+  /* Intensive panels */
+  .panel{border-radius:6px;padding:44px 40px;margin-bottom:28px;}
+  .panel-blue{background:linear-gradient(180deg,#0b1a30,#081222);border:1px solid rgba(47,168,255,0.35);}
+  .panel-orange{background:linear-gradient(180deg,#241505,#170e04);border:1px solid rgba(245,148,31,0.35);}
+  .panel-head{text-align:center;margin-bottom:8px;}
+  .panel h3{font-size:30px;margin-bottom:14px;text-align:center;}
+  .panel h3 .accent-blue{color:var(--blue);}
+  .panel h3 .accent-orange{color:var(--orange);}
+  .panel > p.desc{text-align:center;color:var(--grey);max-width:640px;margin:0 auto 32px;font-size:15px;}
+  .panel-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:28px;}
+  .panel-cols h4{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+  .panel-orange .panel-cols h4{color:var(--orange);}
+  .panel-cols ul{list-style:none;}
+  .panel-cols li{display:flex;gap:10px;font-size:14px;color:var(--grey);margin-bottom:12px;}
+  .panel-cols li::before{content:"✓";color:var(--blue);flex-shrink:0;}
+  .panel-orange .panel-cols li::before{content:"→";color:var(--orange);}
+  .panel-cta{text-align:center;border-top:1px solid var(--line);padding-top:26px;}
+  .panel-cta p{color:var(--grey);font-size:14px;margin-bottom:16px;}
+  @media (max-width:760px){ .panel-cols{grid-template-columns:1fr;} }
+
+  /* Audience CTA image section */
+  .audience{
+    position:relative;border-radius:6px;overflow:hidden;min-height:340px;
+    display:flex;align-items:center;
+    background:
+      linear-gradient(90deg, rgba(3,5,10,0.92) 0%, rgba(3,5,10,0.55) 55%, rgba(3,5,10,0.15) 100%),
+      radial-gradient(circle at 70% 40%, #3a2a10, #120a04 70%);
+    padding:50px;
+  }
+  .audience-inner{max-width:420px;}
+  .audience h3{font-size:32px;margin-bottom:14px;}
+  .audience h3 .accent{color:var(--blue);}
+  .audience p{color:var(--grey);margin-bottom:24px;font-size:15px;}
+
+  /* Testimonials */
+  .testimonial-head{text-align:center;margin-bottom:56px;}
+  .testimonial-head h2{font-size:36px;}
+  .testimonial-head h2 .accent{color:var(--blue);}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .testi-card{background:var(--navy);padding:30px;}
+  .stars{color:var(--orange);letter-spacing:2px;margin-bottom:14px;font-size:14px;}
+  .testi-card p.quote{color:var(--grey);font-size:14px;font-style:italic;margin-bottom:20px;}
+  .testi-name{font-weight:600;font-size:14px;}
+  .testi-role{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--grey-dim);}
+  @media (max-width:860px){ .testi-grid{grid-template-columns:1fr;} }
+
+  /* Final CTA */
+  .final-cta{
+    text-align:center;
+    background:radial-gradient(ellipse at 50% 0%, rgba(47,168,255,0.12), transparent 60%);
+  }
+  .final-cta .eyebrow{justify-content:center;}
+  .final-cta h2{font-size:44px;margin-bottom:18px;}
+  .final-cta h2 .accent{color:var(--blue);}
+  .final-cta p{color:var(--grey);max-width:520px;margin:0 auto 34px;}
+  .final-ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px;}
+  .final-proof{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;color:var(--grey-dim);font-size:13px;margin-bottom:60px;}
+  .final-proof span{display:flex;align-items:center;gap:8px;}
+  .mic{width:180px;height:180px;margin:0 auto;border-radius:50%;
+    background:radial-gradient(circle, rgba(47,168,255,0.35), transparent 70%);
+    display:flex;align-items:center;justify-content:center;font-size:64px;}
+
+  /* About founders */
+  .about{padding-top:0;}
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+  .about-photo{
+    aspect-ratio:3/4;border-radius:4px;position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#2a2a2a,#0a0a0a 70%);
+  }
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 35%);}
+  .about-photo .cap{position:absolute;bottom:18px;left:20px;z-index:2;}
+  .about-photo .cap .n{font-weight:700;font-size:14px;}
+  .about-photo .cap .r{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--blue);}
+  .about h3{font-size:32px;margin-bottom:18px;}
+  .about h3 .accent{color:var(--blue);}
+  .about p{color:var(--grey);font-size:15px;margin-bottom:16px;}
+  .about p strong{color:var(--white);}
+  .about p .hl{color:var(--blue);font-weight:600;}
+  .about blockquote{
+    border-left:2px solid var(--blue);padding:16px 20px;background:var(--navy-panel);
+    font-size:15px;color:var(--white);margin:24px 0;border-radius:0 4px 4px 0;
+  }
+  .about-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  @media (max-width:820px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:34px 0;}
+  .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:24px;font-size:13px;color:var(--grey-dim);}
+  .footer-links a:hover{color:var(--white);}
+  .footer-copy{font-size:12px;color:var(--grey-dim);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#top" class="logo">SPEAKERS <span>BOOTCAMP</span><span class="logo-sub">WITH JOE WILLIAMS</span></a>
+    <nav>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#program">Program</a>
+        <a href="#results">Results</a>
+      </div>
+      <a href="mailto:hello@strategicimpactllc.com?subject=Speakers%20Bootcamp" class="btn btn-blue">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="eyebrow">The Premier Speaker Training Program</div>
+    <h1>Master your <span class="accent">message.</span><br>Change your world.</h1>
+    <p class="lead">Transform from self-conscious to unstoppable. Master the frameworks that command rooms, close deals, and build the authority that changes careers. Get promoted. Land speaking gigs. Build your movement. <strong>Your voice matters. Now prove it.</strong></p>
+    <div class="hero-ctas">
+      <a href="mailto:hello@strategicimpactllc.com?subject=Speakers%20Bootcamp" class="btn btn-blue">Learn More</a>
+      <a href="#program" class="btn btn-outline">See The Program</a>
+    </div>
+    <div class="hero-proof">
+      <span><span class="check">✓</span> $50B+ Client Revenue Created</span>
+      <span><span class="check">✓</span> Thousands of Lives Transformed</span>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div><div class="stat-num">20+</div><div class="stat-label">Years Training</div></div>
+    <div><div class="stat-num">5B+</div><div class="stat-label">Client Revenue</div></div>
+    <div><div class="stat-num">10K+</div><div class="stat-label">People Trained</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-label">Commitment</div></div>
+  </div>
+</div>
+
+<section id="program">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">The Speakers Bootcamp Program</div>
+      <h2>Everything you need to<br><span class="accent">dominate the stage</span></h2>
+      <p>Speakers Bootcamp is an intensive, results-driven program designed to transform you from where you are today into a powerful, confident, high-impact speaker who commands attention and drives real results.</p>
+    </div>
+    <div class="program-grid">
+      <div class="program-card">
+        <div class="program-icon">1</div>
+        <h3>Show Up & Own the Room</h3>
+        <p>Master the 10 common presentation mistakes, learn the S.T.O.R.Y. framework, and deliver your first on-feet speaking exercise with confidence.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">2</div>
+        <h3>Be Clear, Prepared & Sincere</h3>
+        <p>Learn the F.A.C.E. framework, master the science of rapport, and deliver a structured 2-minute message that moves people to action.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">3</div>
+        <h3>Be Flexible, In Control & Powerful</h3>
+        <p>Handle hostile questions, master the power of silence, eliminate filler words, and own the physical presence that commands respect.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">4</div>
+        <h3>Influence, Perform & Commit</h3>
+        <p>Master the psychology of persuasion and influence, deliver your polished final presentation with confidence, and leave with a 30-day action plan to amplify your impact.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">★</div>
+        <h3>Career Impact: Advance Faster</h3>
+        <p>Get promoted, land speaking gigs, close bigger deals, and build the executive presence that opens doors. Communication is the master skill.</p>
+      </div>
+      <div class="program-card">
+        <div class="program-icon">✓</div>
+        <h3>Personal Transformation: Lead Your Life</h3>
+        <p>Overcome fear, find your authentic voice, build unshakeable confidence, and discover the power you've always had inside you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">VIP Intensive Option</div>
+    <div class="panel panel-blue">
+      <h3><span class="accent-blue">2-Day</span> 1-on-1 VIP Intensive (Virtual)</h3>
+      <p class="desc">Same transformational frameworks. Same career-changing results. Personalized, accelerated, and designed for your specific speaking challenges and goals. 100% virtual via Zoom — train from anywhere.</p>
+      <div class="panel-cols">
+        <div>
+          <h4>What's Included</h4>
+          <ul>
+            <li>Unshakeable confidence in any high-pressure situation</li>
+            <li>A polished, compelling message that closes deals and opens doors</li>
+            <li>Direct 1-on-1 coaching from Joe & Alison via Zoom</li>
+            <li>Personalized feedback on your specific speaking challenges</li>
+            <li>Custom 30-day action plan tailored to your goals</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Perfect For</h4>
+          <ul>
+            <li>High-stakes presentations or pitches coming up soon</li>
+            <li>Executives who need accelerated results</li>
+            <li>Entrepreneurs launching a business or movement</li>
+            <li>Anyone who wants personalized, intensive coaching</li>
+            <li>Those who prefer deep work over group dynamics</li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel-cta">
+        <p>Ready for an accelerated transformation?</p>
+        <a href="enroll-vip.html" class="btn btn-blue">Learn More</a>
+      </div>
+    </div>
+
+    <div class="eyebrow orange" style="justify-content:center;">IRL Intensive</div>
+    <div class="panel panel-orange">
+      <h3><span class="accent-orange">2-Day</span> Live & In-Person Intensive</h3>
+      <p class="desc">Nothing beats face-to-face coaching. Get the same intensive 1-on-1 training that Fortune 500 CEOs and successful business leaders receive, IRL. Direct access to Joe Williams in person for personalized, immersive training designed specifically for your speaking challenges and business goals.</p>
+      <div class="panel-cols">
+        <div>
+          <h4>IRL Advantages</h4>
+          <ul>
+            <li>2 days of intensive in-person 1-on-1 coaching with Joe Williams</li>
+            <li>Face-to-face feedback and real-time coaching adjustments</li>
+            <li>The same coaching Fortune 500 CEOs receive, face-to-face</li>
+            <li>Custom 30-day action plan designed for your business</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Perfect For</h4>
+          <ul>
+            <li>Leaders who want immersive, in-person coaching from Joe</li>
+            <li>Executives who value face-to-face transformation</li>
+            <li>Entrepreneurs ready for an immersive IRL experience</li>
+            <li>Anyone who thrives with direct, in-person coaching</li>
+            <li>Direct access to Joe Williams for personalized coaching</li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel-cta">
+        <p>Ready for the ultimate immersive experience?</p>
+        <a href="enroll-inperson.html" class="btn btn-orange">Learn More</a>
+      </div>
+    </div>
+
+    <div class="audience">
+      <div class="audience-inner">
+        <div class="eyebrow">Ready to Transform?</div>
+        <h3>Your audience is<br><span class="accent">waiting for you.</span></h3>
+        <p>Spots in Speakers Bootcamp are limited. We work with a select group of entrepreneurs, executives, and experts who are ready to commit to real transformation.</p>
+        <a href="mailto:hello@strategicimpactllc.com?subject=Speakers%20Bootcamp" class="btn btn-blue">Get Started Today</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="testimonial-head">
+      <div class="eyebrow" style="justify-content:center;">Real Results</div>
+      <h2>Lives transformed.<br><span class="accent">Results proven.</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Working with Joe completely transformed how I show up on stage. Within 6 months of Speakers Bootcamp, I had my first $50,000 speaking contract. Joe doesn't just teach you to speak — he teaches you to lead."</p>
+        <div class="testi-name">Sarah M.</div>
+        <div class="testi-role">Executive Coach & Speaker</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"I had the message but no idea how to deliver it. Joe's training gave me the tools, the confidence, and the framework to turn my expertise into a movement. My business has grown 3x since completing the program."</p>
+        <div class="testi-name">David R.</div>
+        <div class="testi-role">Entrepreneur & Author</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Joe Williams is the real deal. Having trained under Tony Robbins for 15 years, he brings an unmatched level of insight and energy. Speakers Bootcamp is the best investment I've ever made in myself."</p>
+        <div class="testi-name">Michelle K.</div>
+        <div class="testi-role">CEO & Keynote Speaker</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"I was terrified of public speaking. Now I run my own workshops and have spoken at conferences across the country. Joe and Alison create a safe, powerful space for transformation. Absolutely life-changing."</p>
+        <div class="testi-name">James T.</div>
+        <div class="testi-role">Business Consultant</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"The ROI on Speakers Bootcamp is unreal. I closed $200K in new business in the 90 days after completing the program — directly because of how I learned to communicate my value. Worth every penny."</p>
+        <div class="testi-name">Lisa P.</div>
+        <div class="testi-role">Financial Advisor</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Joe has a rare gift: he can see exactly what's holding you back and give you the precise tools to break through. My message is clearer, my confidence is unshakeable, and my impact has multiplied."</p>
+        <div class="testi-name">Robert A.</div>
+        <div class="testi-role">Nonprofit Leader</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="enroll">
+  <div class="wrap">
+    <div class="eyebrow">Your Next Step</div>
+    <h2>Master your <span class="accent">message.</span><br>Change your world.</h2>
+    <p>Stop waiting. Your message deserves to be heard. Choose your path and start your transformation today.</p>
+    <div class="final-ctas">
+      <a href="mailto:hello@strategicimpactllc.com?subject=Speakers%20Bootcamp" class="btn btn-blue">Let's Map It Out</a>
+      <a href="enroll-vip.html" class="btn btn-outline">VIP Virtual</a>
+      <a href="enroll-inperson.html" class="btn btn-outline">Live & In Person</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo">
+      <img src="images/joe-alison.jpeg" alt="Joe and Alison Williams, founders of Speakers Bootcamp">
+      <div class="cap">
+        <div class="n">Joe & Alison Williams</div>
+        <div class="r">Founders, Speakers Bootcamp</div>
+      </div>
+    </div>
+    <div>
+      <h3>Trained by the best.<br><span class="accent">Now training you.</span></h3>
+      <p><strong>Joe Williams</strong> is an internationally-known speaker, strategic expert, and consultant who has spoken to hundreds of thousands of people around the world. For <span class="hl">15 years</span>, Joe served as Head Trainer and Lead Speaker for bestselling author and peak performance coach, Tony Robbins.</p>
+      <p>Joe's work has led him to consult with companies across diverse fields, helping his clients create over <span class="hl">$50 Billion in new business</span> — and helping thousands of people at all experience levels find their voice, refine their skills, master their message, and make an impact.</p>
+      <p><strong>Alison Curwen Williams</strong> is an architect of live experiences and master planner with <span class="hl">25+ years</span> of creating transformational events that leave raving fan clients. Her expertise in high-ticket trainings, intimate seminars, and luxury retreats ensures every experience is flawlessly executed and unforgettable.</p>
+      <blockquote>"Together we help entrepreneurs, executives, and experts become powerful speakers, create a movement with their message, make an impact for their clients, maximize their income, and become a recognized authority in their field."</blockquote>
+      <div class="about-ctas">
+        <a href="mailto:hello@strategicimpactllc.com?subject=Speakers%20Bootcamp" class="btn btn-blue">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="logo" style="font-size:16px;">SPEAKERS <span>BOOTCAMP</span><span class="logo-sub">WITH JOE WILLIAMS</span></div>
+    <div class="footer-links">
+      <a href="mailto:Hello@StrategicImpactLLC.com">Hello@StrategicImpactLLC.com</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">© 2026 Strategic Impact LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
